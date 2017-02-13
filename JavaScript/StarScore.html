@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <link href="StyleSheet.css" rel="stylesheet" />
+    <script>
+        window.onload = function () {
+            var star = document.getElementsByTagName('em');
+            var oDiv = document.getElementById('starBox');
+            var temp = 0;
+            for (var i = 0, len = star.length; i < len; i++) {
+                star[i].index = i;
+                star[i].onmouseover = function () {
+                    clear();
+                    for (var j = 0; j < this.index + 1; j++) { 
+                        document.images[j].src = "img/chngstar.gif";
+                        document.getElementById('starNotice').innerHTML ='目前為'+ (j+1)+ ' 颗星';
+                        //current(temp);
+                    }
+                }
+                star[i].onmouseout = function () {
+                    for (var j = 0; j < this.index + 1; j++) {
+                        
+                        document.images[j].src = "img/star.gif";
+                        document.getElementById('score').innerHTML = '分數為:' + temp + ' 颗星';
+                        current(temp);
+                    }
+                    current(temp);
+                }
+                star[i].onclick = function () {
+                    temp = this.index + 1;
+                    document.getElementById('score').innerHTML ='分數為:'+ temp + ' 颗星';
+                    current(temp);
+                }
+            }
+            //清除所有
+            function clear() {
+                for (var i = 0, len = star.length; i < len; i++) {
+                    document.images[i].src = "img/star.gif";
+                }
+            }
+            //顯示死兆星有幾顆
+            function current(temp) {
+                for (var i = 0; i < temp; i++) {
+                    document.images[i].src = "img/chngstar.gif";
+                }
+            }
+        };
+        //完全參考http://www.wufangbo.com/js-star-fen/
+    </script>
+</head>
+<body>
+     <ul id="outframe">
+            <li><a href="index.html">首頁</a></li>
+            <li><a href="9x9multiTable.html">9x9乘法表</a></li>
+            <li><a href="FormCheck.html">驗證表單</a></li>
+            <li><a href="StarScore.html">目前在這</a></li>
+            <li><a href="AdRound.html">廣告輪播</a></li>
+            <li><a href="Calendar.html">日曆</a></li>
+        </ul>
+    <div id="starBox">
+        <em><img src="img/star.gif" /></em>
+        <em><img src="img/star.gif" /></em>
+        <em><img src="img/star.gif" /></em>
+        <em><img src="img/star.gif" /></em>
+        <em><img src="img/star.gif" /></em>
+    </div>
+    <p id="starNotice"></p>
+    <p id="score"></p>
+</body>
+</html>

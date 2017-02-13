@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <link href="StyleSheet.css" rel="stylesheet" />
+    <script>
+        window.onload = function () {
+            document.getElementById("selectYear").onclick = changeDate;
+            document.getElementById("selectMonth").onclick = changeDate;
+            document.getElementById("selectDay").onclick = changeText;
+
+            document.getElementById("selectYear").innerHTML = "";
+            document.getElementById("selectMonth").innerHTML = "";
+
+            var selectYearmax = 0;
+            var selectMonthmax = 0;
+            function changeDate() {
+                if (selectYearmax == 0) {
+                    for (var i = 2012; i <= 2020 ; i++) {
+                        var opt = document.createElement("option");
+                        opt.setAttribute("value", i);
+                        var optName = document.createTextNode(i);
+                        opt.appendChild(optName);
+                        document.getElementById("selectYear").appendChild(opt);
+                        selectYearmax = i;
+                    };
+                }
+                if (selectMonthmax == 0) {
+
+                    for (var i = 1; i <= 12 ; i++) {
+
+                        var opt = document.createElement("option");
+                        opt.setAttribute("value", i);
+                        var optName = document.createTextNode(i);
+                        opt.appendChild(optName);
+                        document.getElementById("selectMonth").appendChild(opt);
+
+                        selectMonthmax = i;
+                    };
+                }
+                var a = document.getElementById("selectYear").value;
+                var b = document.getElementById("selectMonth").value;
+
+                var e = new Date(a, b, 0);
+                var f = e.getDate();
+
+                document.getElementById("selectDay").innerHTML="";
+             
+                for (var i = 1; i <= f; i++) {
+                    var opt = document.createElement("option");
+                    opt.setAttribute("value", i);
+                    var optName = document.createTextNode(i);
+                    opt.appendChild(optName);
+                    document.getElementById("selectDay").appendChild(opt);
+                };
+            }
+            function changeText() {
+                var ca = document.getElementById("selectYear").value;
+                var cb = document.getElementById("selectMonth").value;
+                var cc = document.getElementById("selectDay").value;
+                if (ca && cb != null) {
+                    document.getElementById("text").innerHTML = "你選的是" + ca + "年" + cb + "月" + cc + "日";
+                    //document.write("你選的是" + ca + "年" + cb + "月" + cc + "日");
+                }
+
+            }  
+        };
+    </script>
+</head>
+<body>
+    <ul id="outframe">
+            <li><a href="index.html">首頁</a></li>
+            <li><a href="9x9multiTable.html">9x9乘法表</a></li>
+            <li><a href="FormCheck.html">驗證表單</a></li>
+            <li><a href="StarScore.html">評點製作</a></li>
+            <li><a href="AdRound.html">廣告輪播</a></li>
+            <li><a href="Calendar.html">目前在這</a></li>
+        </ul>
+    <div>
+        <select id="selectYear"></select>年
+        <select id="selectMonth"></select>月
+        <select id="selectDay"></select>日
+        
+        <label>意見</label>
+        <textarea id="text" cols="40" rows="5"></textarea>
+    </div>
+    <div>
+    </div>
+   
+</body>
+</html>

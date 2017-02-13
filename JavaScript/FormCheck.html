@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <link href="StyleSheet.css" rel="stylesheet" />
+    <script>
+        window.onload = function () {
+            document.getElementById("day").onblur = chDate;
+            document.getElementById("pwd").onblur = chPwd;
+            document.getElementById("account").onblur = chAccount;
+        }
+        function chDate() {
+            var sd = document.getElementById("day").value.split("/");
+            var y2 = sd[0];
+            var m2 = sd[1];
+            var d2 = sd[2];
+            var d1 = new Date(document.getElementById("day").value);
+            var y = d1.getFullYear();
+            var m = d1.getMonth() + 1;
+            var d = d1.getDate();
+            if (y == y2 && m == m2 && d == d2) {
+                document.getElementById("checkDate").innerHTML = "<img src='img/correct.jpg' />正確";
+            } else {
+                document.getElementById("checkDate").innerHTML = "<img src='img/error.png' />日期格式錯誤";
+            }
+        }
+        function chPwd() {
+            var thePwd = document.getElementById("pwd").value;
+            var thePwdlen = thePwd.length;
+            var re = /^(?=.*\d)(?=.*[a-zA-Z])(?=.*\W).{1,6}$/
+            if (thePwd == "") {
+                document.getElementById("checkPwd").innerHTML = "<img src='img/error.png' />密碼不可為空";
+            } else if (re.test(thePwd)) {
+                document.getElementById("checkPwd").innerHTML = "<img src='img/correct.jpg' />正確";
+            } else if (thePwdlen < 6) {
+                document.getElementById("checkPwd").innerHTML = "<img src='img/error.png' />密碼長度必須為六碼";
+            }
+        }
+        function chAccount() {
+            var theName = document.getElementById("account").value;
+            var re = /^[\u4e00-\u9fff]{2,4}$/;
+            if (theName == "") {
+                document.getElementById("checkName").innerHTML = "<img src='img/error.png' />姓名不可為空";
+            } else if (re.test(theName)) {
+                document.getElementById("checkName").innerHTML = "<img src='img/correct.jpg' />正確";
+            } else {
+                document.getElementById("checkName").innerHTML = "<img src='img/error.png' />姓名錯誤";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <ul id="outframe">
+            <li><a href="index.html">首頁</a></li>
+            <li><a href="9x9multiTable.html">9x9乘法表</a></li>
+            <li><a href="FormCheck.html">目前在這</a></li>
+             <li><a href="StarScore.html">評點製作</a></li>
+            <li><a href="AdRound.html">廣告輪播</a></li>
+            <li><a href="Calendar.html">日曆</a></li>
+        </ul>
+    </div>
+    <div  style="padding-top:50px">
+    <fieldset style="width:500px;margin: auto">
+        <legend class="outLabel">Form Check</legend>
+        <div class="FormCheckDiv">
+            <label for="account">姓名:</label>
+            <input type="text" id="account" />
+            <span id="checkName"></span>
+            <h6>(1.不可空白，2.至少兩個字以上，3.必須全為中文字)</h6>
+        </div>
+
+
+        <div class="FormCheckDiv">
+            <label for="pwd">密碼:</label>
+            <input type="password" id="pwd" />
+            <span id="checkPwd"></span>
+            <h6>(1.不可空白，2.至少6個且必須包含英文字母、數字、特殊字元[!@#$%^&*])</h6>
+        </div>
+
+        <div class="FormCheckDiv">
+            <label for="day">日期:</label>
+            <input type="text" id="day" />
+            <span id="checkDate"></span>
+            <h6>(格式:西元年/月/日 yyyy/mm/dd)</h6>
+        </div>
+
+    </fieldset>
+        </div>
+</body>
+</html>

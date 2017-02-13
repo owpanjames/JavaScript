@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <link href="StyleSheet.css" rel="stylesheet" />
+ 
+</head>
+
+<body>
+    <div>
+        <ul id="outframe">
+            <li><a href="index.html">首頁</a></li>
+            <li><a href="9x9multiTable.html">目前在這</a></li>
+            <li><a href="FormCheck.html">驗證表單</a></li>
+            <li><a href="StarScore.html">評點製作</a></li>
+            <li><a href="AdRound.html">廣告輪播</a></li>
+            <li><a href="Calendar.html">日曆</a></li>
+        </ul>
+
+        <div class="clear" id="outframe">
+            <script>
+                document.write("<table>")
+                document.write("<caption>9*9 Multiplication Table</caption>")
+                document.write("<tr>")
+                for (var i = 1; i <= 9; i++) {
+                    document.write("<td>")
+                    for (var j = 1; j <= 9; j++)
+                        document.write(i + "*" + j + "=" + i * j + "<br>");
+                    document.write("</td>")
+                }
+                document.write("</tr>")
+                document.write("</table>")
+
+            </script>
+        </div>
+    </div>
+</body>
+
+</html>

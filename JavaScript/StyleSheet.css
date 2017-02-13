@@ -1,0 +1,93 @@
+﻿body {
+    font-family: 微軟正黑體;
+    width: 900px;
+    margin: auto;
+}
+
+#outframe {
+    height: 22px;
+    font-weight: bolder;
+    color: #fff;
+    text-align: center;
+    font-size: 20px;
+    margin: 0px auto;
+    padding-left: 0px;
+}
+
+    #outframe li {
+        margin: auto;
+        float: left;
+        width: 145px;
+        list-style-type: none;
+        text-align: center;
+        background-color: #6E6E6E;
+        letter-spacing: 2px;
+        border-left-width: 1px;
+        border-left-style: solid;
+        border-left-color: #FFF;
+        margin-left: 1px;
+        border-top-left-radius: 10pt 5pt;
+        border-top-right-radius: 10pt 5pt;
+    }
+
+        #outframe li a {
+            display: block;
+            width: 145px;
+            height: 30px;
+            padding-top: 2px;
+            color: #fff;
+            text-decoration: none;
+        }
+
+            #outframe li a:hover {
+                background-color: #39919F;
+                border-top-left-radius: 10pt 5pt;
+                border-top-right-radius: 10pt 5pt;
+            }
+
+* {
+    margin: 0px 0 0 0;
+    padding: 0;
+}
+
+table {
+    margin: auto;
+    border: 2px solid black;
+    border-collapse: collapse;
+    background-color: aquamarine;
+}
+
+td {
+    font-size: 20px;
+    border: 2px solid black;
+    vertical-align: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+caption {
+    margin-top: 20px;
+    font-size: 30px;
+    color: purple;
+}
+
+.clear {
+    clear: both;
+}
+/*上面的都是99乘法表的格式&通用格式*/
+
+.FormCheckDiv {
+    padding: 20px;
+}
+
+.outLabel {
+    text-align: left;
+    font-family: Consolas,24px;
+    padding-left: 20px;
+}
+
+h6 {
+    padding: 5px;
+    height: 12px;
+    font-size: 12px;
+}
